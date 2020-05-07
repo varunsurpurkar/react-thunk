@@ -34,9 +34,7 @@ export const findEmployee = (state,payload)=>{
 //simple thunk
 export const addOnlyNewEmployee = (employee)=>{
    return (dispatch, getState)=>{
-        console.log("Adding EMPLOYEE BEFORE === "+ JSON.stringify(employee))
         let existingEmployee = findEmployee(getState(),employee)
-        console.log("EXISTING EMPLOYEE === "+ JSON.stringify(existingEmployee))
         if(existingEmployee === undefined){
             dispatch(addEmployee(employee))
         }else{

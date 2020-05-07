@@ -10,8 +10,7 @@ const mapStateToProps = (state)=>{
 }
 
 const mapDispatchToProps = (dispatch)=>{
-    console.log(addOnlyNewEmployee)
-   return {
+    return {
        insertNewEmployee: (newEmployee)=>dispatch(addOnlyNewEmployee(newEmployee)),
        deleteExistingEmployee: (employee)=>dispatch(removeEmployee(employee)),
        modifyExistingEmployee: (employee)=>dispatch(updateEmployee(employee))

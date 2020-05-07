@@ -3,7 +3,6 @@ import AddNewEmployee from './AddNewEmployee'
 
 
 const employee = (props)=>{
-    console.log(props)
     return (
         <React.Fragment>
         <h1 color="RED">EMPLOYEE DATA</h1>    
