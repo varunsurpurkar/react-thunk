@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { addEmployee, removeEmployee, updateEmployee } from '../../actions/employee'
+import { addOnlyNewEmployee, removeEmployee, updateEmployee } from '../../actions/employee'
 import Employee from '../ui/Employee'
 
 const mapStateToProps = (state)=>{
@@ -10,10 +10,11 @@ const mapStateToProps = (state)=>{
 }
 
 const mapDispatchToProps = (dispatch)=>{
+    console.log(addOnlyNewEmployee)
    return {
-       addEmployee: (newEmployee)=>dispatch(addEmployee),
-       removeEmployee: (employee)=>dispatch(removeEmployee),
-       updateEmployee: (employee)=>dispatch(updateEmployee)
+       insertNewEmployee: (newEmployee)=>dispatch(addOnlyNewEmployee(newEmployee)),
+       deleteExistingEmployee: (employee)=>dispatch(removeEmployee(employee)),
+       modifyExistingEmployee: (employee)=>dispatch(updateEmployee(employee))
     }
 }
 

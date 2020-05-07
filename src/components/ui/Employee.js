@@ -1,9 +1,13 @@
 import React from 'react'
+import AddNewEmployee from './AddNewEmployee'
+
 
 const employee = (props)=>{
     console.log(props)
     return (
-        <div>For Employee...
+        <React.Fragment>
+        <h1 color="RED">EMPLOYEE DATA</h1>    
+        <div>
             <table border="1">
                 <thead>
                     <tr>
@@ -22,22 +26,22 @@ const employee = (props)=>{
                                     <td>{employee.firstName}</td>  
                                     <td>{employee.lastName}</td>  
                                     <td>{employee.salary}</td>  
-                                    <td><button>Remove</button></td>
+                                    <td><button onClick = {
+                                        ()=>{
+                                            props.deleteExistingEmployee(employee)
+                                        }
+                                    } >Remove</button></td>
                                    </tr>
                             
                         })
                     }
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <td>
-                        <button>ADD Employee</button>
-                        </td>
-                    </tr>
-                  
-                </tfoot>
-            </table>
+             </table>
         </div>
+        <div>
+            <AddNewEmployee insertNewEmployee = {props.insertNewEmployee}></AddNewEmployee>
+        </div>
+        </React.Fragment>
     )
 }
 
