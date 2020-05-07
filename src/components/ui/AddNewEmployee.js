@@ -1,5 +1,8 @@
 import React from 'react'
 import {useState} from 'react'
+import {Button} from 'react-bootstrap'
+import{InputGroup} from 'react-bootstrap'
+import {FormControl,Container,Row, Col,label} from 'react-bootstrap'
 
 
 const AddNewEmployee = (props)=>{
@@ -10,26 +13,63 @@ const AddNewEmployee = (props)=>{
     const [salary,setSalary] = useState({})   
     
     return (
-        <div>
-           <label>First Name</label> <input type = "text" name ="firstName" onChange= {(event)=> {
-                setFirstName(event.target.value)
-            } } value={firstName}></input>
-            <label>Last Name</label> <input type = "text" name="lastName" onChange= {(event)=> {
-                setLastName(event.target.value)
-            } } value={lastName}></input>
-            <label>Identifer</label> <input type = "text" name="id" onChange= {(event)=> {
-                setId(event.target.value)
-            } } value={id}></input>
-            <label>Salary</label> <input type = "text" name="salary" onChange= {(event)=> {
-                setSalary(event.target.value)
-            } } value={salary}></input>
-            <button onClick = {()=>props.insertNewEmployee({
+        <Container fluid>
+            <Row>
+                <Col>
+                <h1>Add Employee</h1>
+                </Col>
+            </Row>
+            <Row >
+              <Col xs={3}>
+              <label htmlFor="firstName">First Name</label>
+                    <InputGroup className="mb-3">
+                        <FormControl id="firstName" placeholder="First Name" 
+                         aria-label="First Name" onChange = { (event)=>{
+                            setFirstName(event.target.value)
+                        } }/>
+                    </InputGroup>
+                </Col>
+            </Row>
+            <Row >
+              <Col xs={3}>
+              <label htmlFor="lastName">Last Name</label>
+                    <InputGroup className="mb-3">
+                        <FormControl id="lastName" placeholder="Last Name"  aria-label="Last Name"
+                        onChange = { (event)=>{
+                            setLastName(event.target.value)
+                        } } />
+                    </InputGroup>
+                </Col>
+            </Row>
+            <Row >
+              <Col xs={3}>
+              <label htmlFor="iden">Identifier</label>
+                    <InputGroup className="mb-3">
+                        <FormControl id="iden" placeholder="Identifier"  aria-label="Identifier" 
+                        onChange = { (event)=>{
+                            setId(event.target.value)
+                        } }/>
+                    </InputGroup>
+                </Col>
+            </Row>
+            <Row >
+              <Col xs={3}>
+              <label htmlFor="salary">Salary $</label>
+                    <InputGroup className="mb-3">
+                        <FormControl id="salary" placeholder="Salary"  aria-label="Salary" 
+                        onChange = { (event)=>{
+                            setSalary(event.target.value)
+                        } }/>
+                    </InputGroup>
+                </Col>
+            </Row>
+            <Button onClick = {()=>props.insertNewEmployee({
                 id:id,
                 firstName:firstName,
                 lastName:lastName,
                 salary:salary
-            })}>Add Employee</button>
-        </div>
+            })}>Add Employee</Button>
+        </Container>
 
     )
 }

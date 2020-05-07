@@ -1,13 +1,13 @@
 import React from 'react'
 import AddNewEmployee from './AddNewEmployee'
-
+import {Table, Button} from 'react-bootstrap'
 
 const employee = (props)=>{
     return (
         <React.Fragment>
         <h1 color="RED">EMPLOYEE DATA</h1>    
         <div>
-            <table border="1">
+            <Table striped bordered hover size="sm">
                 <thead>
                     <tr>
                     <th>ID</th>
@@ -25,17 +25,17 @@ const employee = (props)=>{
                                     <td>{employee.firstName}</td>  
                                     <td>{employee.lastName}</td>  
                                     <td>{employee.salary}</td>  
-                                    <td><button onClick = {
+                                    <td><Button variant= 'warning' onClick = {
                                         ()=>{
                                             props.deleteExistingEmployee(employee)
                                         }
-                                    } >Remove</button></td>
+                                    } >Remove</Button></td>
                                    </tr>
                             
                         })
                     }
                 </tbody>
-             </table>
+             </Table>
         </div>
         <div>
             <AddNewEmployee insertNewEmployee = {props.insertNewEmployee}></AddNewEmployee>
